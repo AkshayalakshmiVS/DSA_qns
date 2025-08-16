@@ -50,3 +50,33 @@ class Solution {
         
     }
 }
+QN4:prime number or not
+
+class Solution {
+    static boolean isPrime(int n) {
+        // code here
+        if(n<=1) return false;
+        if(n==2) return true;
+        for(int i=2;i<=Math.sqrt(n);i++){
+            if(n%i==0){
+                return false;
+            }
+        }
+        return true;
+        
+    }
+}
+QN5:Number of divisors
+
+class Solution {
+    static int countDivisors(int n) {
+        // code here
+        int c=0;
+        for(int i=1;i<=n;i++){
+            if(n%i==0){
+                if(i%3==0) c++;
+            }
+        }
+        return c;
+    }
+}
