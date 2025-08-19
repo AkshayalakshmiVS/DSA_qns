@@ -93,4 +93,79 @@ class Solution {
         return sum;
     }
 }
+QN7:series 1, 3, 6, 10, 15, 21
 
+class Solution {
+    static int findNthTerm(int n) {
+        // code here
+        int sum=0;
+        for(int i=1;i<=n;i++){
+            sum+=i;
+        }
+        return sum;
+    }
+};
+QN8: series 1 + (1+2) + (1+2+3) + (1+2+3+4) + …… + (1+2+3+4+…+n)
+
+class Solution {
+    static long sumOfTheSeries(long n) {
+        // code here<)
+        int sum=0,seriesSum=0;
+        for(int i=1;i<=n;i++){
+            sum+=i;
+            seriesSum+=sum;
+        }
+        return seriesSum;
+    }
+}
+
+QN9:series 1 + (1+3) + (1+3+5) + (1+3+5+7) + …… + (1+3+5+7+…+(2n-1))
+
+class Solution {
+    static long sumOfTheSeries(long n) {
+        // code here
+        int sum=0,sumSeries=0;
+        for(int i=1;i<=2*n-1;i+=2){
+            sum+=i;
+            sumSeries+=sum;
+        }
+        return sumSeries;
+    }
+}
+
+QN10:series 13 + 23 + 33 + 43 + … 
+	
+class Solution {
+    int sumOfSeries(int n) {
+        // code here
+        int sum=0;
+        for(int i=1;i<=n;i++){
+            sum+=i*i*i;
+        }
+        return sum;
+    }
+}
+
+QN11:Given an integer N, find the absolute difference between sum of the squares of first N natural numbers and square of sum of first N natural numbers.
+	
+class Solution {
+    static long squaresDiff(int N) {
+        // code here
+        long sqr=0;long wsqr=0;long res=0;
+        for(long i=1;i<=N;i++){
+            sqr+=i*i;
+            wsqr+=i;
+            res=Math.abs(sqr-(wsqr*wsqr));
+            
+        }
+        return res;
+    }
+}
+	QN12 Given a number N.Find the sum of fifth powers of natural numbers till N i.e. 15+25+35+..+N5.
+class Solution {
+    long sumOfFifthPowers(long N) {
+        long ans = 0;
+        ans = ((N * N) * (N + 1) * (N + 1) * (2 * N * N + 2 * N - 1)) / 12;
+        return ans;
+    }
+}
