@@ -161,11 +161,41 @@ class Solution {
         return res;
     }
 }
-	QN12 Given a number N.Find the sum of fifth powers of natural numbers till N i.e. 15+25+35+..+N5.
+QN12: Given a number N.Find the sum of fifth powers of natural numbers till N i.e. 15+25+35+..+N5.
+	
 class Solution {
     long sumOfFifthPowers(long N) {
         long ans = 0;
         ans = ((N * N) * (N + 1) * (N + 1) * (2 * N * N + 2 * N - 1)) / 12;
         return ans;
+    }
+}
+
+QN13:You are given an integer n. Your task is to reverse the digits, ensuring that the reversed number has no leading zeroes.
+
+class Solution {
+    public int reverseDigits(int n) {
+        // Code here
+        int rev=0;
+        while(n>0){
+            rev=rev*10+n%10;
+            n/=10;
+            
+        }
+        return rev;
+    }
+}
+
+QN14:Given a positive integer n, find the number of perfect squares that are less than n in the sample space of perfect squares. The sample space consists of all perfect squares starting from 1 (i.e., 1, 4, 9, 16, 25, …)
+
+class Solution {
+    static int countSquares(int n) {
+        // code here
+        int c=0,i=1;
+        while(i*i<n){
+            c++;
+            i++;
+        }
+        return c;
     }
 }
