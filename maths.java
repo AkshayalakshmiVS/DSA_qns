@@ -199,3 +199,51 @@ class Solution {
         return c;
     }
 }
+QN15:****************************find prime numbers till num and display the count******************************************
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        int c=0;
+        for(int i=2;i<=num;i++){
+            int flag=1;
+            for(int j=2;j<=Math.sqrt(i);j++){
+                if(i%j==0 ){
+                    flag=0;
+                    break;
+                }
+            }
+            if(flag==1) c++;
+       
+            
+        }
+        System.out.println(c);
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+}
+QN16:**************************************LCM OF A NUMBER **********************************************************
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        int gcd=0;
+        int num=Math.max(n1,n2);
+        for(int i=1;i<=num;i++){
+            if(n1%i==0 && n2%i==0){
+                gcd=i;
+            }
+        }
+        int lcm=n1*n2/gcd;
+        System.out.println(lcm);
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+}
