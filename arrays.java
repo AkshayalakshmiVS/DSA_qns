@@ -23,4 +23,117 @@ QN2:Given an array arr[]. The task is to find the largest element and return it.
         return max;
     }
 }
+QN17:********************************************First and Second Smallests************************************************
+class Solution {
+    public ArrayList<Integer> minAnd2ndMin(int[] arr) {
+        // code here
+        ArrayList<Integer> arrlist=new ArrayList<>();
+        int small=Integer.MAX_VALUE;
+        int secSmall=Integer.MAX_VALUE;
+        if(arr.length<2){
+            arrlist.add(-1);
+            return arrlist;
+        }
+        for(int i:arr){
+            if(i<small) {
+                secSmall=small;
+                small=i;
+            }
+            if(i>small && i<secSmall){
+                secSmall=i;
+            }
+        }
+        if(secSmall==Integer.MAX_VALUE) arrlist.add(-1);
+        else{
+            arrlist.add(small);
+            arrlist.add(secSmall);
+        }
+        return arrlist;
+        
+    }
+}
+QN18:Min and Max in Array
+class Solution {
+    public Pair<Integer, Integer> getMinMax(int[] arr) {
+        // Code Here
+        int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+        for(int i:arr){
+            if(i<min) min=i;
+            if(i>max) max=i;
+        }
+        return new Pair(min,max);
+    }
+}
+QN19:Alternates in an Array
 
+class Solution {
+    // function to print alternate elements of an array
+    public ArrayList<Integer> getAlternates(int arr[]) {
+        // Code Here
+        ArrayList<Integer> res=new ArrayList<>();
+        for(int i=0;i<arr.length;i+=2){
+            res.add(arr[i]);
+        }
+        return res;
+    }
+}
+QN20:Array Search
+class Solution {
+    public int search(int arr[], int x) {
+        // code here
+        int res=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==x) {
+                res=i;
+                break;}
+            else res=-1;
+        }
+        return res;
+    }
+}
+QN21:Find element at a given Index
+class Solution {
+    public static int findElementAtIndex(int key, int[] arr) {
+        // code here
+        if(key<arr.length)
+           return arr[key];
+        else
+           return -1;
+    }
+}
+QN22:Palindrome Array
+
+class Solution {
+    public static boolean isPerfect(int[] arr) {
+        // code here
+        int res[]=new int[arr.length];
+        int j=0;
+        for(int i=arr.length-1;i>=0;i--){
+            res[j++]=arr[i];
+        }
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=res[i])
+               return false;
+        }
+        return true;
+    }
+}
+QN23:Max and Min Product from 2 Arrays
+class Solution {
+    // Function to find the maximum element from array arr1 and
+    // the minimum element from array arr2 and return their product.
+    public long findMultiplication(int[] arr1, int[] arr2) {
+        // code here
+        int max=Integer.MIN_VALUE;
+        for(int i:arr1){
+            if(i>max) max=i;
+            
+        }
+        int min=Integer.MAX_VALUE;
+        for(int i:arr2){
+            if(i<min) min=i;
+        }
+        long res=(long)min*max;
+        return res;
+    }
+}
