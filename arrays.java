@@ -137,3 +137,60 @@ class Solution {
         return res;
     }
 }
+QN 24:*****************************************Sieve of Eratosthenes***********************************************************************
+
+class Solution {
+    public int[] sieve(int n) {
+        // code here
+        int[] arr=new int[n+1];
+        Arrays.fill(arr,1);
+        for(int i=2;i<=Math.sqrt(n);i++){
+            if(arr[i]==1){
+                for(int j=2*i;j<=n;j+=i){
+                    arr[j]=0;
+                }
+            }
+        }
+        int c=0;
+        for(int i=2;i<=n;i++){
+            if(arr[i]==1) c++;
+        }
+        int[] primes=new int[c];
+        int ind=0;
+        for(int i=2;i<=n;i++){
+            if(arr[i]==1){
+                primes[ind++]=i;
+            }
+        }
+        return primes;
+        
+    }
+}
+
+QN:25 ***************************Given a range [L, R]. The task is to find the sum of all the prime numbers in the given range from L to R both inclusive.*********************
+  import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int l=sc.nextInt();
+		int r=sc.nextInt();
+		int[] arr=new int[r+1];
+		Arrays.fill(arr,1);
+		for(int i=2;i<=Math.sqrt(r);i++){
+		    if(arr[i]==1){
+		        for(int j=2*i;j<=r;j+=i){
+		            arr[j]=0;
+		        }
+		    }
+		}
+		int sum=0;
+		for(int i=l;i<=r;i++){
+		    if(arr[i]==1){
+		        sum+=i;
+		    }
+		}
+		System.out.print(sum);
+	}
+}
+
