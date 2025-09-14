@@ -194,3 +194,109 @@ public class Main
 	}
 }
 
+QN 26:Sort 0s,1s,2s
+class Solution {
+    public void sort012(int[] arr) {
+        // code here
+        
+        int left=0;
+        int right=arr.length-1;
+        int mid=0;
+        while(mid<=right){
+        if(arr[mid]==1) mid++;
+        else if(arr[mid]==0) {
+            swap(arr,mid,left);
+            mid++;
+            left++;
+        }
+        else if(arr[mid]==2){
+            swap(arr,mid,right);
+            right--;
+        }
+    }
+    }
+    private void swap(int[] arr,int a,int b){
+            int temp=arr[a];
+            arr[a]=arr[b];
+            arr[b]=temp;
+        }
+}
+qn 27:Rotate Array by One
+class Solution {
+    public void rotate(int[] arr) {
+        // code here
+        int n=arr.length;
+        int temp=arr[n-1];
+        for(int i=n-1;i>0;i--){
+            arr[i]=arr[i-1];
+            
+        }
+        arr[0]=temp;
+    }
+}
+qn 28:189. Rotate Array
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int n=nums.length;
+        k=k%n;
+        int[] copy=new int[n-k];
+        for(int i=0;i<n-k;i++){
+            copy[i]=nums[i];
+        }
+        int j=0;
+        for(int i=n-k;i<n;i++){
+            nums[j]=nums[i];
+            j++;
+        }
+        for(int i=0;i<copy.length;i++){
+            nums[j]=copy[i];
+            j++;
+        }
+    }
+}
+QN29:Find Kth Rotation
+
+class Solution {
+    public int findKRotation(int arr[]) {
+       int x=-1;
+       for(int i=0;i<arr.length-1;i++){
+           if(arr[i]>arr[i+1]){
+               x=i;
+               break;
+           }
+           
+       }
+       return (x!=-1)?x+1:0;
+    }
+}
+QN 30:Check Equal Arrays
+class Solution {
+    public static boolean checkEqual(int[] a, int[] b) {
+        // code here
+        if(a.length!=b.length) return false;
+        Arrays.sort(a);
+        Arrays.sort(b);
+        int i=0;
+        for(int num:a){
+            
+            if(num!=b[i]) {
+                return false;
+            }
+            i++;
+            
+            
+        }
+    
+        return true;
+    }
+}
+QN 31:Check if array is sorted
+class Solution {
+    public boolean isSorted(int[] arr) {
+        // code here
+        for(int i=0;i<arr.length-1;i++){
+            if(arr[i]>arr[i+1]) return false;
+        }
+        return true;
+    }
+}
