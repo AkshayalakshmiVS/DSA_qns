@@ -300,3 +300,65 @@ class Solution {
         return true;
     }
 }
+QN 32:Move All Zeroes to End
+class Solution {
+    void pushZerosToEnd(int[] arr) {
+        // code here
+        int n=arr.length;
+        int j=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]!=0){
+                arr[j]=arr[i];
+                j++;
+            }
+        }
+        for(int i=j;i<n;i++){
+            arr[i]=0;
+        }
+    }
+}
+QN 33:Remove Duplicates Sorted Array
+class Solution {
+    // Function to remove duplicates from the given array.
+    ArrayList<Integer> removeDuplicates(int[] arr) {
+        // code here
+        ArrayList<Integer> list=new ArrayList<>();
+        int n=arr.length;
+        for(int i=0;i<n-1;i++){
+            if(arr[i]!=arr[i+1]){
+                list.add(arr[i]);
+            }
+        }
+        list.add(arr[n-1]);
+        return list;
+    }
+}
+QN 34:Move all negative elements to end
+class Solution {
+    public void segregateElements(int[] arr) {
+        // Your code goes here
+        ArrayList<Integer> neg=new ArrayList<>();
+        ArrayList<Integer> pos=new ArrayList<>();
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<0) neg.add(arr[i]);
+            else pos.add(arr[i]);
+        }
+        int j=0;
+        for(int num:pos) arr[j++]=num;
+        for(int num:neg) arr[j++]=num;
+        
+    }
+}
+QN:35 Wave Array HINT:SWAP
+Given an sorted array arr[] of integers. Sort the array into a wave-like array(In Place). In other words, arrange the elements into a sequence such that arr[1] >= arr[2] <= arr[3] >= arr[4] <= arr[5] ..... and so on. If there are multiple solutions, find the lexicographically smallest one.
+	class Solution {
+    public void sortInWave(int arr[]) {
+        // code here
+        for(int i=0;i<arr.length-1;i+=2){
+            int temp=arr[i];
+            arr[i]=arr[i+1];
+            arr[i+1]=temp;
+        }
+        
+    }
+}
