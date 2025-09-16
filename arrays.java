@@ -373,3 +373,61 @@ class Solution {
         
     }
 }
+QN 37:349. Intersection of Two Arrays
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        
+        Set<Integer> set=new HashSet<>();
+        for(int n:nums1){
+            set.add(n);
+        }
+        Set<Integer> set1=new HashSet<>();
+        for(int n1:nums2){
+            if(set.contains(n1)) set1.add(n1);
+        }
+        int[] arr=new int[set1.size()];
+        int i=0;
+        for(int num:set1){
+           arr[i++]=num;
+        }
+        return arr;
+    }
+}
+QN 38:Array Leaders
+class Solution {
+    static ArrayList<Integer> leaders(int arr[]) {
+        // code here
+        int n=arr.length;
+        ArrayList<Integer> list=new ArrayList<>();
+     
+        for(int i=0;i<n;i++){
+            int flag=0;
+            for(int j=i+1;j<n;j++){
+                if(arr[i]<arr[j] ){
+                    flag=1;
+                    break;
+                } 
+                
+            }
+            if(flag==0) list.add(arr[i]);
+            
+        }
+        
+        return list;
+    }
+}
+
+OPTIMISED:
+class Solution {
+    static ArrayList<Integer> leaders(int arr[]) {
+        int n=arr.length;
+       ArrayList<Integer> list=new ArrayList<>();
+       int max=arr[n-1];
+       list.addFirst(arr[n-1]);
+       for(int i=n-2;i>=0;i--){
+           if(arr[i]>=max){
+               max=arr[i];
+               list.add(0,arr[i]);
+           }
+       }
+       return list;
