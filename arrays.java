@@ -362,3 +362,14 @@ Given an sorted array arr[] of integers. Sort the array into a wave-like array(I
         
     }
 }
+QN 36:Union of Arrays with Duplicates
+class Solution {
+    public static ArrayList<Integer> findUnion(int[] a, int[] b) {
+        // code here
+        Set<Integer> set=new HashSet<>();
+        for(int i=0;i<a.length;i++) set.add(a[i]);
+        for(int i=0;i<b.length;i++) set.add(b[i]);
+         return new ArrayList<>(set);
+        
+    }
+}
