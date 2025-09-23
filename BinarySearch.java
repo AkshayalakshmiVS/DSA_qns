@@ -93,3 +93,64 @@ class Solution {
         return j+1;
     }
 }
+QN 4:Single Among Doubles in a Sorted
+class Solution {
+    int single(int[] arr) {
+        // code here
+        int n=arr.length;
+        int i=0,j=n-2;
+        while(i<=j){
+            int mid=(i+j)/2;
+            if(mid%2==0){
+                if(arr[mid]==arr[mid+1]){
+                    i=mid+1;
+                }
+                else{
+                    j=mid-1;
+                }
+            }
+            else{
+                if(arr[mid]==arr[mid-1]){
+                    i=mid+1;
+                }
+                else {
+                    j=mid-1;
+                }
+            }
+            
+        }
+        return arr[i];
+    }
+}
+QN 5:Search in Rotated Sorted Array
+class Solution {
+    int search(int[] arr, int key) {
+        // code here
+        int n=arr.length;
+        int i=0,j=n-1;
+        while(i<=j){
+            int mid=(i+j)/2;
+            if(arr[mid]==key){
+                return mid;
+            }
+            if(arr[i]<=arr[mid]){
+                if(key>=arr[i] && key<arr[mid]){
+                    j=mid-1;
+                }
+                else{
+                    i=mid+1;
+                }
+            }
+            else{
+                if(key<=arr[j]&&key>arr[mid]){
+                    i=mid+1;
+                }
+                else{
+                    j=mid-1;
+                }
+            }
+        }
+        return -1;
+    
+    }
+}
