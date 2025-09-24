@@ -154,3 +154,75 @@ class Solution {
     
     }
 }
+QN 6:153. Find Minimum in Rotated Sorted Array
+class Solution {
+    public int findMin(int[] arr) {
+        int n=arr.length;
+        int i=0;
+        int j=n-1;
+        while(i<=j){
+            int mid=i+(j-i)/2;
+            if(arr[mid]<arr[(mid-1+n)%n] && arr[mid]<arr[(mid+1)%n]){
+                return arr[mid];
+            }
+        
+                if(arr[j]>arr[mid]){
+                    j=mid-1;
+                }
+                else{
+                    i=mid+1;
+                }
+            
+
+        }
+        return arr[0];
+        
+    }
+}
+QN 7:Find Kth Rotation
+class Solution {
+    public int findKRotation(int arr[]) {
+        int n=arr.length;
+       int i=0;
+       int j=n-1;
+       while(i<=j){
+           int mid=i+(j-i)/2;
+           if(arr[mid]<arr[(mid-1+n)%n] && arr[mid]<arr[(mid+1)%n]){
+               return mid;
+           }
+           if(arr[j]>arr[mid]){
+               j=mid-1;
+           }
+           else{
+               i=mid+1;
+           }
+       }
+       return 0;
+    }
+}
+QN 7:162. Find Peak Element
+class Solution {
+    public int findPeakElement(int[] arr) {
+        int n=arr.length;
+        if(n==1) return 0;
+        int i=0;
+        int j=n-1;
+        while(i<j){
+            int mid=i+(j-i)/2;
+            if(mid==0){
+                return arr[j]>arr[i]?j:i;
+            }
+            if(arr[mid]>arr[mid-1] && arr[mid]>arr[mid+1]){
+                return mid;
+            }
+            if(arr[mid-1]<arr[mid]){
+                i=mid+1;
+            }
+            else{
+                j=mid-1;
+            }
+        }
+        return j;
+        
+    }
+}
