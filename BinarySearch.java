@@ -226,3 +226,125 @@ class Solution {
         
     }
 }
+QN 8:278. First Bad Version
+public class Solution extends VersionControl {
+    public int firstBadVersion(int n) {
+            int i=0;
+            int j=n;
+            while(i<=j){
+                int mid=i+(j-i)/2;
+                if(isBadVersion(mid)==false){
+                    i=mid+1;
+                }
+                else {
+                    j=mid-1;
+                }
+            }
+
+
+        return i;
+
+    }
+}
+QN 9:Binary Search in forest
+class Solution {
+    static int checkHeight(int[] tree,int n,int h){
+        int wood=0;
+        for(int i=0;i<n;i++){
+            if(tree[i]>h){
+            wood+=tree[i]-h;
+            }
+        }
+        return wood;
+    }
+    static int find_height(int tree[], int n, int k) {
+        
+        int i=0;
+        int j=tree[0];
+        for(int m=0;m<n;m++){
+            j=Math.max(j,tree[m]);
+        }
+        
+        while(i<=j){
+            int mid=i+(j-i)/2;
+            if(checkHeight(tree,n,mid)==k){
+                return mid;
+            }
+            if(checkHeight(tree,n,mid)>k){
+                i=mid+1;
+            }
+            else{
+                j=mid-1;
+            }
+        }
+        return -1;
+        
+    }
+}
+QN 10:Killing Spree
+class Solution {
+    
+
+    long killinSpree(long n) {
+        // Code Here
+        long i=0;
+        long j=(long)Math.sqrt(n);
+        long ans=0;
+        while(i<=j){
+            long mid=i+(j-i)/2;
+          
+            long sum = (mid * (mid + 1) * (2 * mid + 1)) / 6;
+            if(sum>n){
+                j=mid-1;
+            }
+            else{
+                ans=mid;
+                i=mid+1;
+            }
+        }
+        return ans;
+        
+    }
+}
+QN 11:1011. Capacity To Ship Packages Within D Days
+class Solution {
+
+    static int daysCal(int[] weights,int mid,int n){
+        int days=1;
+        int sum=0;
+        for(int m=0;m<n;m++){
+            if(sum+weights[m]<=mid){
+                sum+=weights[m];
+            }
+            else{
+                sum=weights[m];
+                days++;
+            }
+        }
+        return days;
+    }
+
+    public int shipWithinDays(int[] weights, int days) {
+        int i=weights[0];
+        int j=0;
+        int n=weights.length;
+        for(int k=0;k<n;k++){
+            i=Math.max(i,weights[k]);
+            j+=weights[k];
+        }
+        int ans=i;
+        while(i<=j){
+            int mid=i+(j-i)/2;
+            int d=daysCal(weights,mid,n);
+            if(d<=days){
+                ans=mid;
+                j=mid-1;
+            }
+            else{
+                i=mid+1;
+                
+            }
+        }
+        return ans;
+    }
+}
